@@ -1,0 +1,36 @@
+with using friend class in c++
+
+#include <iostream>
+#include <cmath>
+
+class Binary {
+    private:
+        int num;
+    public:
+        Binary(int num) : num(num) {}
+        friend void convertToBinary(Binary& obj);
+};
+
+void convertToBinary(Binary& obj) {
+    int binary[32];
+    int i = 0;
+    while (obj.num > 0) {
+        binary[i] = obj.num % 2;
+        obj.num = obj.num / 2;
+        i++;
+    }
+    std::cout << "The binary representation of the decimal number is: ";
+    for (int j = i - 1; j >= 0; j--) {
+        std::cout << binary[j];
+    }
+    std::cout << std::endl;
+}
+
+int main() {
+    int num;
+    std::cout << "Enter a decimal number: ";
+    std::cin >> num;
+    Binary obj(num);
+    convertToBinary(obj);
+    return 0;
+}

@@ -1,0 +1,34 @@
+
+//GO TO WIKI OF THIS ATTACHED CODE FOR REFERENCE
+
+#include <iostream>
+using namespace std;
+class AP {
+    private:
+        int a, d, n;
+    public:
+        AP(int a, int d, int n) : a(a), d(d), n(n) {}
+        friend void sumOfAP(AP& obj);
+};
+
+void sumOfAP(AP& obj) {
+    int sum = 0;
+    for (int i = 1; i <= obj.n; i++) {
+        sum += obj.a;
+        obj.a += obj.d;
+    }
+   cout << "The sum of the A.P. series is: " << sum << std::endl;
+}
+
+int main() {
+    int a, d, n;
+    cout << "the first term (a) of the A.P. series: ";
+     cin >> a;
+     cout << "the common difference (d) of the A.P. series: ";
+     cin >> d;
+    cout << "the number of terms (n) in the A.P. series: ";
+    cin >> n;
+    AP obj(a, d, n);
+    sumOfAP(obj);
+    
+}

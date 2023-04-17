@@ -1,0 +1,125 @@
+
+/*
+     1ST EXAMPLE
+     
+        
+#include <iostream>
+
+class MyClass {
+    private:
+        int myValue;
+    public:
+        MyClass(int value) : myValue(value) {}
+        friend class MyFriend;
+};
+
+class MyFriend {
+    public:
+        void printValue(const MyClass& obj) {
+            std::cout << "The value of myValue in MyClass is: " << obj.myValue << std::endl;
+        }
+};
+
+int main() {
+    MyClass obj(42);
+    MyFriend friendObj;
+    friendObj.printValue(obj);
+    return 0;
+}
+
+*/
+
+
+
+/*
+
+2ND EXAMPLE
+
+
+
+#include <iostream>
+using namespace std;
+
+class MyClass {
+  private:
+    int x;
+
+  public:
+    MyClass() {
+        x = 0;
+    }
+    friend void myFriendFunction(MyClass& obj);
+};
+
+void myFriendFunction(MyClass& obj) {
+    obj.x = 42;
+    cout << "Value of x set to: " << obj.x << endl;
+}
+
+int main() {
+    MyClass obj;
+    myFriendFunction(obj);
+    return 0;
+}
+*/
+
+/*
+
+3rd example 
+
+#include <iostream>
+
+using namespace std;
+
+class MyClass {
+    private:
+        int x;
+    public:
+        MyClass(int x) {
+            this->x = x;
+        }
+        friend void myFriendFunc(MyClass obj);
+};
+
+void myFriendFunc(MyClass obj) {
+    cout << "The value of x is: " << obj.x << endl;
+}
+
+int main() {
+    MyClass obj(5);
+    myFriendFunc(obj);
+    return 0;
+}
+*/
+
+/*
+ 4th example 
+ 
+#include <iostream>
+
+using namespace std;
+
+class MyClass {
+    private:
+        int myPrivateVariable;
+    public:
+        MyClass(int value) {
+            myPrivateVariable = value;
+        }
+
+        friend class FriendClass;
+};
+
+class FriendClass {
+    public:
+        void printPrivate(MyClass obj) {
+            cout << obj.myPrivateVariable << endl;
+        }
+};
+
+int main() {
+    MyClass obj(42);
+    FriendClass fc;
+    fc.printPrivate(obj);
+    return 0;
+}

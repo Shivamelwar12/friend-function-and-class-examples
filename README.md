@@ -1,4 +1,4 @@
-# friend-function-and-class-examples read explanation
+# friend-function-and-class-examples read explanation in c++
 
 
 A friend function in C++ is a function that is declared outside a class but is capable of accessing the private and protected members of the class. There could be situations in programming wherein we want two classes to share their members. These members may be data members, class functions or function templates.
